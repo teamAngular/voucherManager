@@ -1,0 +1,71 @@
+<h2>Instructions:</h2>
+<p class="text-muted">SIMPLE WORDS. Click on "BEGIN" to issue your unique token number.</p>
+
+<div class="clearfix">            
+    <ul class="nav nav-tabs custom top nav-justified">
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#model-driven"><h5>BEGIN</h5></a>
+        </li>                       
+    </ul>
+</div>
+<div class="tab-content top">
+    <div class="tab-pane" id="model-driven">
+        <p class="text-muted">MORE WORDS.</p>
+        <div class="row">
+            <div class="col-md-9 col-12 offset-md-1">
+                <form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+
+                    <div class="form-group row text-sm-right">
+                        <label class="col-sm-3">Account Number</label>
+                        <div class="col-sm-8 text-left">
+                            <input class="form-control validation-field" type="text" formControlName="maxLength">
+                            <small class="text-danger" *ngIf="form.controls.maxLength.touched">
+                                <span class="text-danger" *ngIf="form.controls.maxLength.errors?.required">Field is required</span>
+                                <span class="text-danger" *ngIf="form.controls.maxLength.errors?.maxlength">Maximum of 10 characters</span>
+                            </small>
+                        </div>
+                    </div>
+                  
+                    <div class="form-group row text-sm-right">
+                    <label class="col-sm-3" for="exampleInputAmount">Amount (in cedis)</label>
+                    <div class="col-sm-8 text-left">
+                        <div class="input-group-prepend"><span class="input-group-text">GH¢</span></div>
+                            <input type="text" class="form-control">
+                        <div class="input-group-append"><span class="input-group-text">.00</span></div>
+                    </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+                        <label class="col-sm-3">Email</label>
+                        <div class="col-sm-8 text-left">
+                            <input class="form-control validation-field" type="text" formControlName="email">
+                            <small class="text-danger" *ngIf="form.controls.email.errors?.email">Invalid email address</small> 
+                        </div>
+                    </div>
+
+                    <div class="form-group row text-sm-right">
+                        <label class="col-sm-3" for="textarea-1">Description</label>
+                        <div class="col-sm-8 text-left">
+                            <textarea class="form-control" id="textarea-1" type="password" formControlName="required"></textarea>
+                            <small class="text-danger" *ngIf="form.controls.required.touched && form.controls.required.errors?.required">Field is required</small>
+                            <small class="text-muted">This is a short written account of the good or service to be purchased.</small>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-8 offset-sm-3 text-center">
+                            <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Validate &amp; Submit</button>
+                        </div>
+                    </div>    
+
+                    <div class="form-group">
+                            <label for="input-7">Your Voucher Number</label>
+                            <input type="email" class="form-control" id="input-7" disabled value="admin@themeseason.com">
+                    </div>                
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
